@@ -3,26 +3,27 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:provider/provider.dart';
 import '../provider/loginbyphonenumberprovider.dart';
 
-
 class PhoneLoginScreen extends StatelessWidget {
+  const PhoneLoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final phoneLoginProvider = Provider.of<PhoneLoginProvider>(context);
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0),
+        preferredSize: const Size.fromHeight(60.0),
         child: Container(
           padding: const EdgeInsets.only(top: 20.0),
           child: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.black),
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
               onPressed: () => Navigator.pop(context),
             ),
             centerTitle: true,
-            title: Text(
+            title: const Text(
               'Login to Tamang Food\nServices',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -38,7 +39,7 @@ class PhoneLoginScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Get started with Foodly',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -46,8 +47,8 @@ class PhoneLoginScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Enter your phone number to use foodly and\nenjoy your food :)',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -55,8 +56,8 @@ class PhoneLoginScreen extends StatelessWidget {
                 color: Colors.grey,
               ),
             ),
-            SizedBox(height: 24),
-            Align(
+            const SizedBox(height: 24),
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'PHONE NUMBER',
@@ -67,9 +68,9 @@ class PhoneLoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             IntlPhoneField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(
                   borderSide: BorderSide(),
                 ),
@@ -79,16 +80,16 @@ class PhoneLoginScreen extends StatelessWidget {
                 phoneLoginProvider.setPhoneNumber(phone.completeNumber);
               },
             ),
-            Spacer(),
+            const Spacer(),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
-                  padding: EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
                 onPressed: () => phoneLoginProvider.signUp(context),
-                child: Text(
+                child: const Text(
                   'SIGN UP',
                   style: TextStyle(
                     fontSize: 16,
@@ -103,8 +104,3 @@ class PhoneLoginScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

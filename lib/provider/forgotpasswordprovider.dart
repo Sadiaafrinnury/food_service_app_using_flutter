@@ -10,7 +10,8 @@ class ForgotPasswordProvider with ChangeNotifier {
   Future<bool> sendResetEmail() async {
     try {
       // Simulate sending email logic (e.g., API call)
-      await Future.delayed(Duration(seconds: 2)); // Simulating network delay
+      await Future.delayed(
+          const Duration(seconds: 2)); // Simulating network delay
       // Logic to send email goes here (using _email)
       print('Reset email sent to $_email'); // For debugging
       return true; // Return true if the email is sent successfully
@@ -20,5 +21,3 @@ class ForgotPasswordProvider with ChangeNotifier {
     }
   }
 }
-
-

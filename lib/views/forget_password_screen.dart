@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:tamang_food_service_food_ordering_app/views/resetemailsentscreen.dart';
 import '../provider/forgotpasswordprovider.dart';
 
-
 class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
+
   @override
   _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
 }
@@ -19,10 +20,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text('Forgot Password'),
+        title: const Text('Forgot Password'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -31,28 +32,28 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Forgot password',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Enter your email address and we will send you reset instructions.',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            SizedBox(height: 24),
-            Text(
+            const SizedBox(height: 24),
+            const Text(
               'EMAIL ADDRESS',
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
             TextField(
               controller: emailController,
               onChanged: forgotPasswordProvider.setEmail,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Enter your email',
               ),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -65,23 +66,23 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
                   if (email.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Please enter your email address')),
+                      const SnackBar(
+                          content: Text('Please enter your email address')),
                     );
                   } else {
                     print('Navigating to ResetEmailSentScreen');
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ResetEmailSentScreen(email: email),
+                        builder: (context) =>
+                            ResetEmailSentScreen(email: email),
                       ),
                     );
                   }
                 },
-                child: Text(
-                    'RESET PASSWORD',
-                  style: TextStyle(
-                    color: Colors.white
-                  ),
+                child: const Text(
+                  'RESET PASSWORD',
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
@@ -91,4 +92,3 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     );
   }
 }
-

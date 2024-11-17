@@ -9,7 +9,7 @@ class ResetEmailSentScreen extends StatelessWidget {
   final String email; // Define email as a final field
 
   // Constructor to accept email
-  ResetEmailSentScreen({required this.email});
+  const ResetEmailSentScreen({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,10 @@ class ResetEmailSentScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text('Forgot Password'),
+        title: const Text('Forgot Password'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -31,19 +31,20 @@ class ResetEmailSentScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Reset email sent',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 'We have sent an instructions email to $email.',
-                style: TextStyle(fontSize: 16, color: Colors.grey),
+                style: const TextStyle(fontSize: 16, color: Colors.grey),
               ),
               TextButton(
                 onPressed: () {
                   final resetPasswordProvider =
-                  Provider.of<ResetPasswordProvider>(context, listen: false);
+                      Provider.of<ResetPasswordProvider>(context,
+                          listen: false);
 
                   // Optional: perform any actions with the provider, like resetting email
                   resetPasswordProvider.setEmail(''); // Example action
@@ -56,14 +57,14 @@ class ResetEmailSentScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   "Having problem?",
                   style: TextStyle(
                     color: Colors.orange,
                   ),
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -81,17 +82,18 @@ class ResetEmailSentScreen extends StatelessWidget {
                       );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Failed to send reset email')),
+                        const SnackBar(
+                            content: Text('Failed to send reset email')),
                       );
                     }
                   },
-                  child: Text(
+                  child: const Text(
                     'SEND AGAIN',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
-              SizedBox(height: 150),
+              const SizedBox(height: 150),
               Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: Image.asset(
@@ -105,5 +107,3 @@ class ResetEmailSentScreen extends StatelessWidget {
     );
   }
 }
-
-

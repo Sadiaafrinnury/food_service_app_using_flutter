@@ -22,7 +22,7 @@ class SignInProvider extends ChangeNotifier {
     _passwordError = null;
     notifyListeners();
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       _isLoading = false;
       if (email.isEmpty || !email.contains('@')) {
         _emailError = 'Invalid email address';

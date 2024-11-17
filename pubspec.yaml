@@ -41,6 +41,7 @@ dependencies:
   intl_phone_field: ^2.0.0
   pin_code_fields: ^8.0.1
   geolocator: ^13.0.1
+  dots_indicator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,28 @@ flutter:
     - assets/images/Google.png
     - assets/images/Illustrations3.png
     - assets/images/OpenDoodles.png
+    - assets/images/featuredpartners1.png
+    - assets/images/featuredpartners2.png
+    - assets/images/featuredpartners3.png
+    - assets/images/featuredpartners4.png
+    - assets/images/featuredpartners5.png
+    - assets/images/featuredpartners6.png
+    - assets/images/food.png
+    - assets/images/food1.png
+    - assets/images/food2.png
+    - assets/images/item.png
+    - assets/images/item1.png
+    - assets/images/map.png
+    - assets/images/map1.png
+    - assets/images/seafood.png
+    - assets/images/seafood1.png
+    - assets/images/seafood2.png
+    - assets/images/toppick.png
+    - assets/images/toppick1.png
+    - assets/images/toppick2.png
+    - assets/images/toppick3.png
+    - assets/images/toppick4.png
+    - assets/images/toppick5.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -4,6 +4,8 @@ import 'package:tamang_food_service_food_ordering_app/consts/image_consts.dart';
 import '../provider/createaccountprovider.dart';
 
 class CreateAccountScreen extends StatelessWidget {
+  const CreateAccountScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final signUpProvider = Provider.of<SignUpProvider>(context);
@@ -11,10 +13,10 @@ class CreateAccountScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text('Forgot Password'),
+        title: const Text('Forgot Password'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -24,101 +26,99 @@ class CreateAccountScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Create Account',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 'Enter your Name, Email and Password for sign up.',
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
                   // Navigate to Sign In Screen
                   Navigator.pop(context); // Adjust navigation as needed
                 },
-                child: Text(
+                child: const Text(
                   'Already have an account?',
                   style: TextStyle(color: Colors.orange, fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               TextField(
                 onChanged: signUpProvider.setFullName,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'FULL NAME',
                   suffixIcon: Icon(Icons.check, color: Colors.green),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextField(
                 onChanged: signUpProvider.setEmail,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'EMAIL ADDRESS',
                   suffixIcon: Icon(Icons.check, color: Colors.green),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextField(
                 onChanged: signUpProvider.setPassword,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'PASSWORD',
                   suffixIcon: Icon(Icons.visibility, color: Colors.black),
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
                   onPressed: signUpProvider.validateForm()
                       ? () {
-                    signUpProvider.goToPhoneLoginScreen(context);
-                  }
+                          signUpProvider.goToPhoneLoginScreen(context);
+                        }
                       : null, // Disable button if form is invalid
-                  child: Text(
-                      'SIGN UP',
-                    style: TextStyle(
-                      color: Colors.white
-                    ),
+                  child: const Text(
+                    'SIGN UP',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 'By Signing up you agree to our Terms Conditions & Privacy Policy.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 12, color: Colors.grey),
               ),
-              SizedBox(height: 16),
-              Center(child: Text('Or', style: TextStyle(fontSize: 16))),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
+              const Center(child: Text('Or', style: TextStyle(fontSize: 16))),
+              const SizedBox(height: 16),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  icon: Icon(Icons.facebook, color: Colors.white),
+                  icon: const Icon(Icons.facebook, color: Colors.white),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue[900],
                   ),
                   onPressed: () {
                     // Handle Facebook sign-in
                   },
-                  label: Text(
-                      'CONNECT WITH FACEBOOK',
-                    style: TextStyle(
-                      color: Colors.white
-                    ),
+                  label: const Text(
+                    'CONNECT WITH FACEBOOK',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
@@ -133,16 +133,13 @@ class CreateAccountScreen extends StatelessWidget {
                   onPressed: () {
                     // Handle Google sign-in
                   },
-                  label: Text(
-                      'CONNECT WITH GOOGLE',
-                    style: TextStyle(
-                      color: Colors.white
-                    ),
+                  label: const Text(
+                    'CONNECT WITH GOOGLE',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
-              SizedBox(height: 16),
-
+              const SizedBox(height: 16),
             ],
           ),
         ),

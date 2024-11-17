@@ -12,7 +12,7 @@ class Walkthrough3Screen extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => WalkthroughProvider(),
       child: Scaffold(
-        backgroundColor: Color(0xFFF4EDEB),
+        backgroundColor: const Color(0xFFF4EDEB),
         body: SafeArea(
           child: Center(
             child: Padding(
@@ -22,7 +22,6 @@ class Walkthrough3Screen extends StatelessWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -30,8 +29,8 @@ class Walkthrough3Screen extends StatelessWidget {
                             AssetsManager.g12, // Logo asset
                             height: 50,
                           ),
-                          SizedBox(width: 10),
-                          Text(
+                          const SizedBox(width: 10),
+                          const Text(
                             'Tamang\nFoodService',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -42,18 +41,14 @@ class Walkthrough3Screen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 30),
-
-
+                      const SizedBox(height: 30),
                       Image.asset(
-                        AssetsManager.Illustration2, // Replace with your walkthrough illustration path
+                        AssetsManager
+                            .Illustration2, // Replace with your walkthrough illustration path
                         height: 300,
                       ),
-
-                      SizedBox(height: 30),
-
-
-                      Text(
+                      const SizedBox(height: 30),
+                      const Text(
                         'Choose your food',
                         style: TextStyle(
                           fontSize: 24,
@@ -61,10 +56,7 @@ class Walkthrough3Screen extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
-
-                      SizedBox(height: 10),
-
-
+                      const SizedBox(height: 10),
                       Text(
                         'Easily find your type of food craving and you’ll\nget delivery in wide range.',
                         textAlign: TextAlign.center,
@@ -73,36 +65,33 @@ class Walkthrough3Screen extends StatelessWidget {
                           color: Colors.grey[700],
                         ),
                       ),
-
-                      SizedBox(height: 20),
-
-
-                      Row(
+                      const SizedBox(height: 20),
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(radius: 4, backgroundColor: Colors.grey),
                           SizedBox(width: 4),
                           CircleAvatar(radius: 4, backgroundColor: Colors.grey),
                           SizedBox(width: 4),
-                          CircleAvatar(radius: 4, backgroundColor: Colors.green),
+                          CircleAvatar(
+                              radius: 4, backgroundColor: Colors.green),
                         ],
                       ),
-
-                      SizedBox(height: 40),
-
-
+                      const SizedBox(height: 40),
                       ElevatedButton(
                         onPressed: () {
-                          provider.goToHomeScreen(context); // Navigate using provider
+                          provider.goToHomeScreen(
+                              context); // Navigate using provider
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFFFC107),
-                          padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                          backgroundColor: const Color(0xFFFFC107),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 60, vertical: 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'GET STARTED',
                           style: TextStyle(
                             fontSize: 16,

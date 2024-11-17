@@ -11,7 +11,8 @@ class PhoneLoginProvider with ChangeNotifier {
   }
 
   bool isPhoneNumberValid() {
-    return _phoneNumber.isNotEmpty && _phoneNumber.length > 8; // Basic validation
+    return _phoneNumber.isNotEmpty &&
+        _phoneNumber.length > 8; // Basic validation
   }
 
   void signUp(BuildContext context) {
@@ -22,7 +23,7 @@ class PhoneLoginProvider with ChangeNotifier {
     } else {
       // Show error if phone number is invalid
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter a valid phone number')),
+        const SnackBar(content: Text('Please enter a valid phone number')),
       );
     }
   }

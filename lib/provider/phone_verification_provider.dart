@@ -14,12 +14,12 @@ class PhoneVerificationProvider with ChangeNotifier {
   void verifyCode(BuildContext context) {
     if (_verificationCode.length == 4) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Verification Successful!')),
+        const SnackBar(content: Text('Verification Successful!')),
       );
       Navigator.pushNamed(context, '/findRestaurant');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter a valid 4-digit code.')),
+        const SnackBar(content: Text('Please enter a valid 4-digit code.')),
       );
     }
   }

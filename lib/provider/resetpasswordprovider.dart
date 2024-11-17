@@ -13,7 +13,8 @@ class ResetPasswordProvider with ChangeNotifier {
   Future<bool> sendResetEmail() async {
     try {
       // Simulate sending an email (replace this with your actual logic)
-      await Future.delayed(Duration(seconds: 2)); // Simulating a network call
+      await Future.delayed(
+          const Duration(seconds: 2)); // Simulating a network call
 
       // Here, implement the actual sending logic.
       // For example, make an API call to send the email using _email.
@@ -29,4 +30,3 @@ class ResetPasswordProvider with ChangeNotifier {
     }
   }
 }
-

@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../provider/enter_address_provider.dart';
 
-
-
 class FindRestaurantScreen extends StatelessWidget {
+  const FindRestaurantScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final locationProvider = Provider.of<LocationProvider>(context, listen: false);
+    final locationProvider =
+        Provider.of<LocationProvider>(context, listen: false);
 
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.close),
+          icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text("Find restaurants near you"),
+        title: const Text("Find restaurants near you"),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -24,33 +25,33 @@ class FindRestaurantScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
+            const Text(
               "Find restaurants near you",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               "Please enter your location or allow access to your location to find restaurants near you.",
               style: TextStyle(fontSize: 16, color: Colors.grey),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             OutlinedButton.icon(
               onPressed: () {
                 // Navigate to TypeLocationScreen using Provider
                 locationProvider.goToTypeLocationScreen(context);
               },
-              icon: Icon(Icons.my_location, color: Colors.orange),
-              label: Text(
+              icon: const Icon(Icons.my_location, color: Colors.orange),
+              label: const Text(
                 "Use current location",
                 style: TextStyle(color: Colors.orange),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.location_on),
+                prefixIcon: const Icon(Icons.location_on),
                 hintText: "Enter a new address",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
@@ -60,26 +61,29 @@ class FindRestaurantScreen extends StatelessWidget {
               ),
               onChanged: (query) => locationProvider.fetchSuggestions(query),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
 
             // List of suggestions
             Consumer<LocationProvider>(
               builder: (context, locationProvider, child) {
                 return locationProvider.suggestions.isNotEmpty
                     ? Expanded(
-                  child: ListView.builder(
-                    itemCount: locationProvider.suggestions.length,
-                    itemBuilder: (context, index) {
-                      final suggestion = locationProvider.suggestions[index];
-                      return ListTile(
-                        leading: Icon(Icons.location_on, color: Colors.orange),
-                        title: Text(suggestion),
-                        onTap: () => locationProvider.selectAddress(suggestion),
-                      );
-                    },
-                  ),
-                )
-                    : SizedBox.shrink();
+                        child: ListView.builder(
+                          itemCount: locationProvider.suggestions.length,
+                          itemBuilder: (context, index) {
+                            final suggestion =
+                                locationProvider.suggestions[index];
+                            return ListTile(
+                              leading: const Icon(Icons.location_on,
+                                  color: Colors.orange),
+                              title: Text(suggestion),
+                              onTap: () =>
+                                  locationProvider.selectAddress(suggestion),
+                            );
+                          },
+                        ),
+                      )
+                    : const SizedBox.shrink();
               },
             ),
 
@@ -88,13 +92,14 @@ class FindRestaurantScreen extends StatelessWidget {
               builder: (context, locationProvider, child) {
                 return locationProvider.address != null
                     ? Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: Text(
-                    "Selected Address: ${locationProvider.address}",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                )
-                    : SizedBox.shrink();
+                        padding: const EdgeInsets.only(top: 16.0),
+                        child: Text(
+                          "Selected Address: ${locationProvider.address}",
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    : const SizedBox.shrink();
               },
             ),
           ],
@@ -103,6 +108,3 @@ class FindRestaurantScreen extends StatelessWidget {
     );
   }
 }
-
-
-

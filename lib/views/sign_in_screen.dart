@@ -10,6 +10,8 @@ class SignInScreen extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  SignInScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -18,12 +20,12 @@ class SignInScreen extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
             ),
           ),
-          title: Text(
+          title: const Text(
             'Sign In',
             style: TextStyle(
               color: Colors.black,
@@ -40,32 +42,34 @@ class SignInScreen extends StatelessWidget {
               return SingleChildScrollView(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    minHeight: MediaQuery.of(context).size.height - kToolbarHeight,
+                    minHeight:
+                        MediaQuery.of(context).size.height - kToolbarHeight,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(
+                      const Text(
                         'Welcome to Tamang Food Services',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         'Enter your Phone number or Email address for sign in. Enjoy your food :)',
                         style: TextStyle(color: Colors.grey[700]),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextField(
                         controller: emailController,
                         decoration: InputDecoration(
                           labelText: 'EMAIL ADDRESS',
                           errorText: provider.emailError,
                           suffixIcon: provider.emailError == null
-                              ? Icon(Icons.check, color: Colors.green)
+                              ? const Icon(Icons.check, color: Colors.green)
                               : null,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextField(
                         controller: passwordController,
                         obscureText: !provider.sPasswordVisible,
@@ -82,7 +86,7 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -97,60 +101,60 @@ class SignInScreen extends StatelessWidget {
                               ),
                             );
                           },
-                          child: Text('Forgot Password?'),
+                          child: const Text('Forgot Password?'),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       provider.isLoading
-                          ? Center(child: CircularProgressIndicator())
+                          ? const Center(child: CircularProgressIndicator())
                           : ElevatedButton(
-                        onPressed: () {
-                          provider.signIn(
-                            emailController.text,
-                            passwordController.text,
-                            context,
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFFFC107),
-                        ),
-                        child: Text(
-                          'SIGN IN',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Row(
+                              onPressed: () {
+                                provider.signIn(
+                                  emailController.text,
+                                  passwordController.text,
+                                  context,
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFFFFC107),
+                              ),
+                              child: const Text(
+                                'SIGN IN',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                      const SizedBox(height: 10),
+                      const Row(
                         children: [
                           Expanded(child: Divider()),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding: EdgeInsets.symmetric(horizontal: 10.0),
                             child: Text("Or"),
                           ),
                           Expanded(child: Divider()),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.facebook,
                           color: Colors.white,
                         ),
-                        label: Text(
+                        label: const Text(
                           'CONNECT WITH FACEBOOK',
                           style: TextStyle(color: Colors.white),
                         ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF3b5998),
-                          padding: EdgeInsets.symmetric(vertical: 15),
+                          backgroundColor: const Color(0xFF3b5998),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       ElevatedButton.icon(
                         onPressed: () {},
                         icon: Image.asset(
@@ -158,20 +162,20 @@ class SignInScreen extends StatelessWidget {
                           height: 24,
                           width: 24,
                         ),
-                        label: Text(
+                        label: const Text(
                           'CONNECT WITH GOOGLE',
                           style: TextStyle(color: Colors.white),
                         ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF4285F4),
-                          padding: EdgeInsets.symmetric(vertical: 15),
+                          backgroundColor: const Color(0xFF4285F4),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Don't have an account?"),
+                          const Text("Don't have an account?"),
                           TextButton(
                             onPressed: () {
                               Navigator.push(
@@ -184,7 +188,7 @@ class SignInScreen extends StatelessWidget {
                                 ),
                               );
                             },
-                            child: Text('Create new account.'),
+                            child: const Text('Create new account.'),
                           ),
                         ],
                       ),
@@ -199,5 +203,3 @@ class SignInScreen extends StatelessWidget {
     );
   }
 }
-
-
